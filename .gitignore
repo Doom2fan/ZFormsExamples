@@ -1,0 +1,13 @@
+thumbs.db
+
+*.backup*
+*.bak*
+*.wad.backup*
+*.wad.bak*
+*.tmp*
+*.user
+*.lnk
+*.*.save
+*.o
+/*.PK3
+*.sublime-workspace
