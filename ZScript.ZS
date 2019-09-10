@@ -33,3 +33,4 @@ version "4.0"
 /** Examples **/
 // A simple example menu
 #include "ZScript/ZFormsExamples/SimpleMenu.ZS"
+#include "ZScript/ZFormsExamples/DynamicElementCreation.ZS"
