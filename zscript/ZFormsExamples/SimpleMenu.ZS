@@ -43,10 +43,12 @@ class Samples_ZF_SimpleMenu : Samples_ZF_GenericMenu
 
     override void Init (Menu parent)
     {
+        Vector2 baseRes = (320, 200);
+
         // Call GenericMenu's 'Init' function to do some required initialization.
         Super.Init (parent);
         // Set our base resolution to 320x200.
-        SetBaseResolution ((320, 200));
+        SetBaseResolution (baseRes);
 
         // Get GZDoom's new options menu smallfont.
         smallFont = OptionFont ();
@@ -71,29 +73,55 @@ class Samples_ZF_SimpleMenu : Samples_ZF_GenericMenu
         // Add the image element into the main frame.
         background.Pack (mainFrame);
 
+        // Create the box image's textures.
+        let boxTexture = Samples_ZF_BoxTextures.CreateTexturePixels
+        (
+            // The texture itself.
+            "graphics/ZFormsExamples/BoxTexture.png",
+            // The top-left corner of the middle of the box.
+            (32, 32),
+            // The bottom-right corner of the middle of the box.
+            (64, 64),
+            // Whether to scale (true) or tile (false) the sides.
+            false,
+            // Whether to scale (true) or tile (false) the middle.
+            false
+        );
+        // Add a box image.
+        let boxSize = (128, 128);
+        let aBoxImage = new ('Samples_ZF_BoxImage').Init
+        (
+            // Position
+            ((baseRes.X - boxSize.X) / 2., (baseRes.Y - boxSize.Y) / 2.),
+            // Size
+            boxSize,
+            // Texture
+            boxTexture,
+            // Scale
+            (0.25, 0.25)
+        );
+        // Add the box image element into the main frame.
+        aBoxImage.Pack (mainFrame);
+
+        // Create the button's textures.
+        let buttonIdle = Samples_ZF_BoxTextures.CreateSingleTexture ("graphics/ZFormsExamples/SmallButtonIdle.png", true);
+        let buttonHover = Samples_ZF_BoxTextures.CreateSingleTexture ("graphics/ZFormsExamples/SmallButtonHovered.png", false);
+        let buttonClick = Samples_ZF_BoxTextures.CreateSingleTexture ("graphics/ZFormsExamples/SmallButtonClicked.png", false);
         // Add a button.
         aButton = new ('Samples_ZF_Button').Init
         (
             // Position
-            ((320. - 18.) / 2., (200. - 18.) / 2. ),
+            ((baseRes.X - 18.) / 2., (baseRes.Y - 18.) / 2.),
             // Size
             (18, 18),
             // Our command handler
             cmdHandler: handler,
             // A command string for the button
-            command: "aButton"
-        );
-        // Set the button's textures.
-        aButton.SetTexture
-        (
-            // Idle/inactive
-            "graphics/ZFormsExamples/SmallButtonIdle.png",
-            // Hovered
-            "graphics/ZFormsExamples/SmallButtonHovered.png",
-            // Clicked/pressed
-            "graphics/ZFormsExamples/SmallButtonClicked.png",
-            // Disabled
-            ""
+            command: "aButton",
+            // The button's textures
+            inactive: buttonIdle,
+            hover: buttonHover,
+            click: buttonClick
         );
         // Add the button element into the main frame.
         aButton.Pack (mainFrame);
@@ -117,7 +145,7 @@ class Samples_ZF_SimpleMenu : Samples_ZF_GenericMenu
             textColor: Font.CR_WHITE
         );
         // Calculate the horizontal position for the label so that it's centered on the screen.
-        aLabel.box.pos.X = (320. - smallFont.stringWidth (aLabel.text)) / 2.;
+        aLabel.box.pos.X = (baseRes.x - smallFont.stringWidth (aLabel.text)) / 2.;
         // Add the label element to the main frame.
         aLabel.Pack (mainFrame);
     }
