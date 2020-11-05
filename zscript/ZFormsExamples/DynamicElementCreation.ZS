@@ -26,7 +26,7 @@ class Samples_ZF_DynamicElementCreation : Samples_ZF_GenericMenu
         smallFont = Font.GetFont ("SmallFont");
 
         // Add a background.
-        background = new ('Samples_ZF_Image').Init
+        background = Samples_ZF_Image.Create
         (
             // Position.
             (0, 0),
@@ -84,7 +84,7 @@ class Samples_ZF_DynamicElementCreation : Samples_ZF_GenericMenu
             let weaponName = item.GetTag ();
 
             // Add a label.
-            let label = new ('Samples_ZF_Label').Init
+            let label = Samples_ZF_Label.Create
             (
                 // Position.
                 (

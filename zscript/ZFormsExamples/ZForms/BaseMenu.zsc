@@ -7,8 +7,7 @@ class Samples_ZF_GenericMenu : GenericMenu {
 
 	override void init(Menu parent) {
 		Super.init(parent);
-		mainFrame = new("Samples_ZF_Frame");
-		mainFrame.init((0, 0), (320, 200));
+		mainFrame = Samples_ZF_Frame.create((0, 0), (320, 200));
 		mainFrame.setBaseResolution((320, 200));
 	}
 
@@ -57,8 +56,7 @@ class Samples_ZF_EventHandlerMenu ui {
 	protected string customCursor;
 
 	virtual void init() {
-		mainFrame = new("Samples_ZF_Frame");
-		mainFrame.init((0, 0), (320, 200));
+		mainFrame = Samples_ZF_Frame.create((0, 0), (320, 200));
 		mainFrame.setBaseResolution((320, 200));
 	}
 

@@ -59,7 +59,7 @@ class Samples_ZF_SimpleMenu : Samples_ZF_GenericMenu
         handler.link = self;
 
         // Add a background.
-        background = new ('Samples_ZF_Image').Init
+        background = Samples_ZF_Image.Create
         (
             // Position
             (0, 0),
@@ -89,7 +89,7 @@ class Samples_ZF_SimpleMenu : Samples_ZF_GenericMenu
         );
         // Add a box image.
         let boxSize = (128, 128);
-        let aBoxImage = new ('Samples_ZF_BoxImage').Init
+        let aBoxImage = Samples_ZF_BoxImage.Create
         (
             // Position
             ((baseRes.X - boxSize.X) / 2., (baseRes.Y - boxSize.Y) / 2.),
@@ -108,7 +108,7 @@ class Samples_ZF_SimpleMenu : Samples_ZF_GenericMenu
         let buttonHover = Samples_ZF_BoxTextures.CreateSingleTexture ("graphics/ZFormsExamples/SmallButtonHovered.png", false);
         let buttonClick = Samples_ZF_BoxTextures.CreateSingleTexture ("graphics/ZFormsExamples/SmallButtonClicked.png", false);
         // Add a button.
-        aButton = new ('Samples_ZF_Button').Init
+        aButton = Samples_ZF_Button.Create
         (
             // Position
             ((baseRes.X - 18.) / 2., (baseRes.Y - 18.) / 2.),
@@ -127,7 +127,7 @@ class Samples_ZF_SimpleMenu : Samples_ZF_GenericMenu
         aButton.Pack (mainFrame);
 
         // Add a label.
-        aLabel = new ('Samples_ZF_Label').Init
+        aLabel = Samples_ZF_Label.Create
         (
             // Position
             (0, aButton.box.pos.Y + aButton.box.size.Y + 4),
