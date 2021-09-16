@@ -20,7 +20,7 @@ class Samples_SimpleMenuHandler : Samples_ZF_Handler
         if (command == "aButton")
         {
             // Change the text's colour to a random colour.
-            link.aLabel.textColor = random [textColor] (Font.CR_BRICK, Font.CR_TEAL);
+            link.aLabel.SetTextColor (random [textColor] (Font.CR_BRICK, Font.CR_TEAL));
         }
     }
 }
@@ -130,7 +130,7 @@ class Samples_ZF_SimpleMenu : Samples_ZF_GenericMenu
         aLabel = Samples_ZF_Label.Create
         (
             // Position
-            (0, aButton.box.pos.Y + aButton.box.size.Y + 4),
+            (0, aButton.GetPosY () + aButton.GetHeight () + 4),
             // Size.
             (0, smallFont.GetHeight ()),
             // The label's text
@@ -145,7 +145,7 @@ class Samples_ZF_SimpleMenu : Samples_ZF_GenericMenu
             textColor: Font.CR_WHITE
         );
         // Calculate the horizontal position for the label so that it's centered on the screen.
-        aLabel.box.pos.X = (baseRes.x - smallFont.stringWidth (aLabel.text)) / 2.;
+        aLabel.SetPosX ((baseRes.x - smallFont.stringWidth (aLabel.GetText ())) / 2.);
         // Add the label element to the main frame.
         aLabel.Pack (mainFrame);
     }

@@ -5,6 +5,24 @@ class Samples_ZF_Handler ui {
 	virtual void buttonHeldCommand(Samples_ZF_Button caller, string command) {
 	}
 
+	virtual void radioButtonChanged(Samples_ZF_RadioButton caller, string command, Samples_ZF_RadioController variable) {
+	}
+
+	virtual void toggleButtonChanged(Samples_ZF_ToggleButton caller, string command, bool on) {
+	}
+
+	virtual void textInputExit(Samples_ZF_TextInput caller, string command) {
+	}
+
+	virtual void textInputChanged(Samples_ZF_TextInput caller, string command) {
+	}
+
+	virtual void sliderChanged(Samples_ZF_Slider caller, string command) {
+	}
+
+	virtual void dropdownChanged(Samples_ZF_DropdownList caller, string command) {
+	}
+
 	virtual void elementHoverChanged(Samples_ZF_Element caller, string command, bool unhovered) {
 	}
 }

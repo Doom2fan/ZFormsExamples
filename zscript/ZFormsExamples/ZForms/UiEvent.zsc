@@ -1,4 +1,4 @@
-class Samples_ZF_UiEvent ui {
+struct Samples_ZF_UiEvent ui {
 	// 
 	int Type;
 	//
